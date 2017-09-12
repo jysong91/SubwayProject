@@ -4,12 +4,13 @@
 <head>
 	<title>Home</title>
 </head>
-<body>
+<body style="background: green">
 <h1>
 	Hello world!  
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<img src="img/seoul.png"/>
 <!-- 
 링크 주소에 /move는 절대주소(서비스가 달려지므로 사용X)
 그냥 move하면 서비스/move가 됨

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.WebPage.IDao.BoardDao">
+	<select id="selectBoard" parameterType="map" resultType="com.care.WebPage.DTO.Board">
+		SELECT *
+		FROM(
+			SELECT LEVEL, no, id, LPAD(' ', 4*(LEVEL-1))||title as title, contents,
+			writeDate, readNo, pno, depth, ROWNUM AS RNUM
+			FROM(
+				SELECT b.no, id, title, contents, to_char(writeDate,'yyyy/mm/dd hh24:mi:ss')
+				writeDate, h.readNo, nvl(rpl.pno, 0) as pno, nvl(rpl.depth, 0) as
+				depth
+				FROM board b
+				LEFT JOIN Hits h
+				ON b.no = h.no
+				LEFT JOIN reply rpl
+				ON b.no = rpl.no
+			)
+		<where>
+			<choose>
+				<when test='searchOpt eq "id"'>
+					id like '%'||searchWord||'%'
+				</when>
+				<when test='searchOpt eq "title"'>
+					title like '%'||searchWord||'%'
+				</when>
+				<when test='searchOpt eq "all"'>
+					title like '%'||searchWord||'%' 
+					OR id like '%'||searchWord||'%'
+				</when>
+			</choose>
+		</where>
+		START WITH pno=0
+		CONNECT BY PRIOR no=pno
+		ORDER SIBLINGS BY no desc
+		)
+		WHERE RNUM <![CDATA[ > ]]> #{start} 
+		AND RNUM <![CDATA[ <= ]]> #{end}
+	</select>
+	<select id="detailRead" parameterType="int" resultType="com.care.WebPage.DTO.Board">
+		SELECT * FROM BOARD
+		WHERE NO=#{no}
+	</select>
+	<select id="selectBoardTotalCnt" resultType="int">
+		SELECT COUNT(*) FROM BOARD
+	</select>
+</mapper>
+
+
+
+
+
+
+

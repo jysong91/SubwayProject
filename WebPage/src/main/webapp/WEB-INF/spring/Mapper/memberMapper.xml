@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- memberMapper.xml -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.WebPage.IDao.MemberDao">
+	<select id="isExistId" resultType="int" 
+	parameterType="String">
+		select count(*)
+		from member
+		where id=#{id}
+	</select>
+	<select id="searchZipcode" 
+	resultType="com.care.WebPage.DTO.Zipcode"
+	parameterType="String">
+		SELECT * FROM ZIPCODE
+		WHERE DONG1 LIKE '%'||#{dong1}||'%'
+	</select>
+	<insert id="insertMember" 
+	parameterType="com.care.WebPage.DTO.Member">
+		INSERT INTO MEMBER
+		(ID, PW, EMAIL, GENDER)
+		VALUES (#{id}, #{pw}, #{email},#{gender})
+	</insert>
+	<insert id="insertMemberPostCode"
+	parameterType="com.care.WebPage.DTO.Member">
+		INSERT INTO MEMBERPOSTCODE
+		(ID, ZIPCODE, ADDR1, ADDR2)
+		VALUES (#{id}, #{zipcode}, #{addr1},#{addr2})
+	</insert>
+	<select id="findInfoProc" parameterType="map"
+	resultType="String">
+		SELECT ID 
+		FROM member
+		WHERE email=#{email}
+		<if test="id != null">
+			AND id=#{id}
+		</if>
+	</select>
+	<select id="loginProc" resultType="int"
+	parameterType="com.care.WebPage.DTO.Login">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE ID=#{id}
+		AND PW=#{pw}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

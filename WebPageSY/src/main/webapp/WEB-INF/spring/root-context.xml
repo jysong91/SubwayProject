@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<bean class="org.apache.commons.dbcp.BasicDataSource"
+	id="dataSource"
+	p:driverClassName="oracle.jdbc.OracleDriver"
+	p:url="jdbc:oracle:thin:@localhost:1521:xe"
+	p:username="jin"
+	p:password="jin1234"/>
+	
+	<!-- 마이 바티스 빈 설정 -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" 
+	id="sqlSessionFactoryBean"
+	p:dataSource-ref="dataSource" 
+	p:mapperLocations="/WEB-INF/spring/Mapper/*.xml"/>
+	
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean"
+	id="memberMapper"
+	p:mapperInterface="com.care.WebPage.IDAO.MemberDao"
+	p:sqlSessionFactory-ref="sqlSessionFactoryBean"/>
+	
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean"
+	id="boardMapper"
+	p:mapperInterface="com.care.WebPage.IDAO.BoardDao"
+	p:sqlSessionFactory-ref="sqlSessionFactoryBean"/>
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<context:component-scan base-package="com.care.WebPage.*" />
+		
+</beans>

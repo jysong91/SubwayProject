@@ -1,0 +1,37 @@
+--새로운 테이블 생성을 위한 현재 테이블 구조분석(우편번호, 주소, 상세주소 를 회원테이블에 연결)
+
+SELECT *
+FROM ALL_TAB_COLUMNS
+WHERE TABLE_NAME='MEMBER'
+
+SELECT COLUMN_NAME, DATA_TYPE, DATA_LENGTH
+FROM ALL_TAB_COLUMNS
+WHERE TABLE_NAME='MEMBER'
+
+SELECT COLUMN_NAME, DATA_TYPE, DATA_LENGTH
+FROM ALL_TAB_COLUMNS
+WHERE TABLE_NAME='ZIPCODE'
+
+--우편번호
+ALTER TABLE MEMBER
+ADD(ZIPCODE VARCHAR2(5))
+
+--주소검색을 통한 주소지 출력 결과
+ALTER TABLE MEMBER
+ADD(ADDR1 VARCHAR2(220))
+
+--직접입력한 상세주소
+ALTER TABLE MEMBER
+ADD(ADDR2 VARCHAR2(80))
+
+--여기까지가 멤버테이블 자체에 테이블 추가하는 방법
+--이제 테이블 별도 생성, 외래키를 통해 연결하는 방법을 하기위해 컬럼삭제
+
+alter table member
+drop column addr2
+
+alter table member
+drop column addr1
+
+alter table member
+drop column zipcode
