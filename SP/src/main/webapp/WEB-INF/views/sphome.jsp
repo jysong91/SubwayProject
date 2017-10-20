@@ -58,7 +58,36 @@
 	    var clicking = false;
 	    var previousX;
 	    var previousY;
+	    
+//		Zoom
+	    var currZoom = 1;
+	    var maxZoom = 1.25;
+	    var minZoom = 0.875;
+	    var zoomStep = 0.125;
+	    var rv = 0;
 
+	    var E = e.originalEvent;
+		var delta = 0;
+// 		파이어폭스
+		if (E.detail) {
+			delta = E.detail * -40;
+		}
+// 		익스 크롬
+		else {
+			delta = E.wheelDelta;
+		}
+// 		wheel up
+		if(delta >= 120){
+			if(currZoom < maxZoom){
+				currZoom+=zoomStep;
+				zoomMap();
+			}
+		} else if(delta <= -120){
+			if(currZoom > minZoom){
+				currZoom-=zoomStep;
+				zoomMap();
+			}
+		}
 	    $("#scroll").mousedown(function(e) {
 	        e.preventDefault();
 	        previousX = e.clientX;
@@ -90,6 +119,9 @@
 	    $("#scroll").mouseleave(function(e) {
 	        clicking = false;
 	    });
+	    $("#map").on("click", function(){
+		    $("#map").animate({zoom: '50%'}, "slow");
+		});
     });
     </script>
   </body>
