@@ -41,6 +41,12 @@
 	<div id="scroll">
 		<img id="map" alt="지하철지도" src="${res }img/forHome/map_korea.jpg">
 	</div>
+	<div class="imgmap_css_container" id="imgmap2017102017458">
+	<a style="position: absolute; top: 245px; left: 838px; width: 16px; height: 10px;"
+	  alt="" title="" href="" target="" ><em>아</em></a>
+	  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+  	</div>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -55,50 +61,22 @@
 // 	    	containment:[-2948, -2126,0,0 ],
 // 	    	scroll:"true"
 // 	    });
+//		지도 이동용
 	    var clicking = false;
 	    var previousX;
 	    var previousY;
-	    
-//		Zoom
-	    var currZoom = 1;
-	    var maxZoom = 1.25;
-	    var minZoom = 0.875;
-	    var zoomStep = 0.125;
-	    var rv = 0;
-
-	    var E = e.originalEvent;
-		var delta = 0;
-// 		파이어폭스
-		if (E.detail) {
-			delta = E.detail * -40;
-		}
-// 		익스 크롬
-		else {
-			delta = E.wheelDelta;
-		}
-// 		wheel up
-		if(delta >= 120){
-			if(currZoom < maxZoom){
-				currZoom+=zoomStep;
-				zoomMap();
-			}
-		} else if(delta <= -120){
-			if(currZoom > minZoom){
-				currZoom-=zoomStep;
-				zoomMap();
-			}
-		}
+// 	        줌변수
+	    var zoomCnt=0;
+//		지도 이동용
 	    $("#scroll").mousedown(function(e) {
 	        e.preventDefault();
 	        previousX = e.clientX;
 	        previousY = e.clientY;
 	        clicking = true;
 	    });
-
 	    $(document).mouseup(function() {
 	        clicking = false;
 	    });
-
 	    $("#scroll").mousemove(function(e) {
 	        if (clicking) {
 	            e.preventDefault();
@@ -115,13 +93,33 @@
 	        	$(this).attr('class','defaultCursor');
 	        }
 	    });
-
 	    $("#scroll").mouseleave(function(e) {
 	        clicking = false;
 	    });
-	    $("#map").on("click", function(){
-		    $("#map").animate({zoom: '50%'}, "slow");
-		});
+// 	    기본적인 줌
+// 	    $("#map").on("click", function(){
+// 		    $("#map").animate({zoom: '50%'}, "slow");
+// 		});
+		$('#map').bind('wheel mousewheel', function(e){
+			var delta;
+			
+	        
+	        if (e.originalEvent.wheelDelta !== undefined)
+	            delta = e.originalEvent.wheelDelta;
+	        else
+	            delta = e.originalEvent.deltaY * -1;
+	
+            if(delta > 0&&zoomCnt<=10) {
+                $("#map").css("width", "+=100");
+                $("#map").css("height", "+=100");
+                zoomCnt++;
+            }
+            else if(zoomCnt>-6){
+                $("#map").css("width", "-=100");
+                $("#map").css("height", "-=100");
+                zoomCnt--;
+            }
+        });
     });
     </script>
   </body>

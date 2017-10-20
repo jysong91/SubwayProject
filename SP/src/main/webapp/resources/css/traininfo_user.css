@@ -1,0 +1,459 @@
+@charset "utf-8";
+
+img {border:0px;}
+
+/* 스크롤바 제거 */
+html, body { overflow : hidden; }
+
+/* 열차운행정보 레이아웃 */
+#traininfo-nav{z-index:99999; left:0;top:0px; position: fixed; width: 180px; height:100%; background: #232730;}
+#traininfo-footer{z-index:99999; right:0px; bottom:0px; position: fixed; padding: 20px;}
+#traininfo-contents{padding-left:180px;display:inline-block}
+#zoomIn{width:50px;height:50px;cursor:pointer;position:fixed;z-index:99999;background:url((../img/btn_zoom_in.png) 50% no-repeat;top:30px;right:20px;}
+/* #zoomIn:active:not(.disabled){background:url(../img/btn_zoom_in_p.png) 50% no-repeat;} */
+#zoomIn.disabled{background:url(../img/btn_zoom_in_e.png) 50% no-repeat;}
+#zoomOut{width:50px;height:50px;cursor:pointer;position:fixed;z-index:99999;background:url((../img/btn_zoom_out.png) 50% no-repeat;top:70px;right:20px;}
+/* #zoomOut:active:not(.disabled){background:url(../img/btn_zoom_out_p.png) 50% no-repeat;} */
+#zoomOut.disabled{background:url(../img/btn_zoom_out_e.png) 50% no-repeat;}
+
+/* 로고 */
+#metro_logo {max-width:180px;text-align:center;background-color:#fff;padding:10px;}
+
+/* 메뉴 */
+.menu .lineAll {background:url(/images/train/user/menu_line_all_n.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
+.menu .line1 {background:url(/images/train/user/menu_line_1_n.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
+.menu .line2 {background:url(/images/train/user/menu_line_2_n.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
+.menu .line3 {background:url(/images/train/user/menu_line_3_n.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
+.menu .line4 {background:url(/images/train/user/menu_line_4_n.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
+.menu .line5 {background:url(/images/train/user/menu_line_5_n.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
+.menu .line6 {background:url(/images/train/user/menu_line_6_n.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
+.menu .line7 {background:url(/images/train/user/menu_line_7_n.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
+.menu .line8 {background:url(/images/train/user/menu_line_8_n.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
+.menu .cb {background:url(/images/train/user/menu_u_n.png) 50% no-repeat;margin-top:30px;width:180px;height:50px;cursor:pointer;border-top:1px solid #101319;}
+.menu .line_on {background:url(/images/train/user/select_box.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
+.menu .cb_on {background:url(/images/train/user/menu_u_p.png) 50% no-repeat;}
+
+/* 노선도 */
+.subwayAll, .subway1, .subway2, .subway3, .subway4, .subway5, .subway6, .subway7, .subway8
+{width:1928px;height:1565px;text-align:center;position:relative;background-size:1928px;background-repeat:no-repeat;}
+.subwayAll{background-image:url(../img/forHome/map_korea.jpg);}
+.subway1{background-image:url(/images/train/user/normal/line1.png?20170927);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line1.png?20170927', sizingMethod='scale');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line1.png?20170927',sizingMethod='scale')";}
+.subway2{background-image:url(/images/train/user/normal/line2.png?20170927);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line2.png?20170927', sizingMethod='scale');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line2.png?20170927',sizingMethod='scale')";}
+.subway3{background-image:url(/images/train/user/normal/line3.png?20170927);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line3.png?20170927', sizingMethod='scale');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line3.png?20170927',sizingMethod='scale')";}
+.subway4{background-image:url(/images/train/user/normal/line4.png?20170927);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line4.png?20170927', sizingMethod='scale');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line4.png?20170927',sizingMethod='scale')";}
+.subway5{background-image:url(/images/train/user/normal/line5.png?20170927);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line5.png?20170927', sizingMethod='scale');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line5.png?20170927',sizingMethod='scale')";}
+.subway6{background-image:url(/images/train/user/normal/line6.png?20170927);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line6.png?20170927', sizingMethod='scale');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line6.png?20170927',sizingMethod='scale')";}
+.subway7{background-image:url(/images/train/user/normal/line7.png?20170927);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line7.png?20170927', sizingMethod='scale');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line7.png?20170927',sizingMethod='scale')";}
+.subway8{background-image:url(/images/train/user/normal/line8.png?20170927);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line8.png?20170927', sizingMethod='scale');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/images/train/user/normal/line8.png?20170927',sizingMethod='scale')";}
+
+div[class^=subway].zoom-1{width:1687px;height:1370px;background-size:1687px;}
+div[class^=subway].zoom1{width:2169px;height:1761px;background-size:2169px;}
+div[class^=subway].zoom2{width:2410px;height:1957px;background-size:2410px;}
+
+/* 역 좌표 */
+.t_way1,.t_way2,.t_way3,.t_way4,.t_way5,.t_way6,.t_way7,.t_way8 {position:absolute;width:15px;height:15px;cursor:pointer;}
+.t_way1_0150{left:854px;top:640px;} /* 서울역 */
+.t_way1_0151{left:856px;top:535px;} /* 시청 */
+.t_way1_0152{left:870px;top:488px;} /* 종각 */
+.t_way1_0153{left:924px;top:472px;} /* 종로3가 */
+.t_way1_0154{left:959px;top:474px;} /* 종로5가 */
+.t_way1_0155{left:989px;top:470px;} /* 동대문 */
+.t_way1_0156{left:1135px;top:477px;} /* 신설동 */
+.t_way1_0157{left:1205px;top:474px;} /* 제기동 */
+.t_way1_0158{left:1287px;top:481px;} /* 청량리 */
+.t_way1_0159{left:1065px;top:469px;} /* 동묘앞 */
+.t_way1_1002{left:856px;top:716px;} /* 남영 */
+.t_way1_1003{left:856px;top:768px;} /* 용산 */
+.t_way1_1004{left:837px;top:858px;} /* 노량진 */
+.t_way1_1005{left:791px;top:874px;} /* 대방 */
+.t_way1_1006{left:695px;top:874px;} /* 영등포 */
+.t_way1_1007{left:639px;top:861px;} /* 신도림 */
+.t_way1_1015{left:1331px;top:481px;} /* 회기 */
+.t_way1_1016{left:1371px;top:472px;} /* 외대앞 */
+.t_way1_1017{left:1419px;top:448px;} /* 신이문 */
+.t_way1_1018{left:1426px;top:393px;} /* 석계 */
+.t_way1_1019{left:1424px;top:367px;} /* 광운대 */
+.t_way1_1020{left:1424px;top:348px;} /* 월계 */
+.t_way1_1021{left:1424px;top:330px;} /* 녹천 */
+.t_way1_1022{left:1424px;top:302px;} /* 창동 */
+.t_way1_1032{left:746px;top:870px;} /* 신길 */
+.t_way1_1401{left:1484px;top:1375px;} /* 봉명 */
+.t_way1_1402{left:1527px;top:1375px;} /* 쌍용(나사렛대) */
+.t_way1_1403{left:1571px;top:1375px;} /* 아산 */
+.t_way1_1405{left:1661px;top:1375px;} /* 배방 */
+.t_way1_1407{left:1701px;top:1363px;} /* 온양온천 */
+.t_way1_1408{left:1717px;top:1326px;} /* 신창 */
+.t_way1_1701{left:614px;top:875px;} /* 구로 */
+.t_way1_1702{left:588px;top:945px;} /* 가산디지털단지 */
+.t_way1_1703{left:588px;top:1038px;} /* 금천구청 */
+.t_way1_1704{left:607px;top:1080px;} /* 석수 */
+.t_way1_1705{left:648px;top:1091px;} /* 관악 */
+.t_way1_1706{left:688px;top:1091px;} /* 안양 */
+.t_way1_1707{left:725px;top:1107px;} /* 명학 */
+.t_way1_1708{left:739px;top:1149px;} /* 금정 */
+.t_way1_1709{left:739px;top:1191px;} /* 군포 */
+.t_way1_1710{left:739px;top:1273px;} /* 의왕 */
+.t_way1_1711{left:739px;top:1314px;} /* 성균관대 */
+.t_way1_1712{left:749px;top:1354px;} /* 화서 */
+.t_way1_1713{left:788px;top:1375px;} /* 수원 */
+.t_way1_1714{left:588px;top:991px;} /* 독산 */
+.t_way1_1715{left:847px;top:1375px;} /* 세류 */
+.t_way1_1716{left:902px;top:1375px;} /* 병점 */
+.t_way1_1717{left:951px;top:1375px;} /* 세마 */
+.t_way1_1718{left:995px;top:1375px;} /* 오산대 */
+.t_way1_1719{left:1038px;top:1375px;} /* 오산 */
+.t_way1_1720{left:1084px;top:1375px;} /* 진위 */
+.t_way1_1721{left:1128px;top:1375px;} /* 송탄 */
+.t_way1_1722{left:1173px;top:1375px;} /* 서정리 */
+.t_way1_1723{left:1217px;top:1375px;} /* 지제 */
+.t_way1_1724{left:1261px;top:1375px;} /* 평택 */
+.t_way1_1725{left:1305px;top:1375px;} /* 성환 */
+.t_way1_1726{left:1350px;top:1375px;} /* 직산 */
+.t_way1_1727{left:1394px;top:1375px;} /* 두정 */
+.t_way1_1728{left:1438px;top:1375px;} /* 천안 */
+.t_way1_1729{left:739px;top:1231px;} /* 당정 */
+.t_way1_1749{left:940px;top:1340px;} /* 서동탄 */
+.t_way1_1750{left:563px;top:1084px;} /* 광명 */
+.t_way1_1801{left:509px;top:874px;} /* 개봉 */
+.t_way1_1802{left:455px;top:888px;} /* 오류동 */
+.t_way1_1803{left:437px;top:968px;} /* 역곡 */
+.t_way1_1804{left:409px;top:1007px;} /* 부천 */
+.t_way1_1805{left:351px;top:1007px;} /* 송내 */
+.t_way1_1806{left:286px;top:1007px;} /* 부평 */
+.t_way1_1807{left:257px;top:1017px;} /* 백운 */
+.t_way1_1808{left:243px;top:1037px;} /* 동암 */
+.t_way1_1809{left:237px;top:1087px;} /* 주안 */
+.t_way1_1810{left:237px;top:1135px;} /* 제물포 */
+.t_way1_1811{left:237px;top:1184px;} /* 동인천 */
+.t_way1_1812{left:237px;top:1210px;} /* 인천 */
+.t_way1_1813{left:558px;top:874px;} /* 구일(동양미래대학) */
+.t_way1_1814{left:432px;top:993px;} /* 소사 */
+.t_way1_1815{left:322px;top:1007px;} /* 부개 */
+.t_way1_1816{left:237px;top:1059px;} /* 간석 */
+.t_way1_1817{left:237px;top:1158px;} /* 도원 */
+.t_way1_1821{left:438px;top:939px;} /* 온수 */
+.t_way1_1822{left:379px;top:1007px;} /* 중동 */
+.t_way1_1823{left:237px;top:1110px;} /* 도화 */
+.t_way1_1901{left:1424px;top:253px;} /* 방학 */
+.t_way1_1902{left:1422px;top:203px;} /* 도봉 */
+.t_way1_1903{left:1375px;top:173px;} /* 도봉산 */
+.t_way1_1904{left:1312px;top:173px;} /* 망월사 */
+.t_way1_1905{left:1259px;top:173px;} /* 회룡 */
+.t_way1_1906{left:1205px;top:173px;} /* 의정부 */
+.t_way1_1907{left:1142px;top:173px;} /* 가능 */
+.t_way1_1908{left:1100px;top:173px;} /* 녹양 */
+.t_way1_1909{left:1056px;top:173px;} /* 양주 */
+.t_way1_1910{left:1019px;top:173px;} /* 덕계 */
+.t_way1_1911{left:970px;top:173px;} /* 덕정 */
+.t_way1_1912{left:927px;top:173px;} /* 지행 */
+.t_way1_1913{left:884px;top:173px;} /* 동두천중앙 */
+.t_way1_1914{left:840px;top:173px;} /* 보산 */
+.t_way1_1915{left:806px;top:159px;} /* 동두천 */
+.t_way1_1916{left:789px;top:123px;} /* 소요산 */
+
+.t_way2_0201{left:856px;top:535px;} /* 시청 */
+.t_way2_0202{left:891px;top:541px;} /* 을지로입구 */
+.t_way2_0203{left:923px;top:544px;} /* 을지로3가 */
+.t_way2_0204{left:961px;top:537px;} /* 을지로4가 */
+.t_way2_0205{left:989px;top:532px;} /* 동대문역사문화공원 */
+.t_way2_0206{left:1065px;top:537px;} /* 신당 */
+.t_way2_0207{left:1133px;top:541px;} /* 상왕십리 */
+.t_way2_0208{left:1200px;top:546px;} /* 왕십리 */
+.t_way2_0209{left:1243px;top:569px;} /* 한양대 */
+.t_way2_0210{left:1266px;top:600px;} /* 뚝섬 */
+.t_way2_0211{left:1277px;top:639px;} /* 성수 */
+.t_way2_0212{left:1278px;top:683px;} /* 건대입구 */
+.t_way2_0213{left:1273px;top:719px;} /* 구의 */
+.t_way2_0214{left:1273px;top:744px;} /* 강변 */
+.t_way2_0215{left:1273px;top:828px;} /* 잠실나루 */
+.t_way2_0216{left:1277px;top:889px;} /* 잠실 */
+.t_way2_0217{left:1273px;top:917px;} /* 잠실새내 */
+.t_way2_0218{left:1254px;top:959px;} /* 종합운동장 */
+.t_way2_0219{left:1233px;top:988px;} /* 삼성 */
+.t_way2_0220{left:1196px;top:1010px;} /* 선릉 */
+.t_way2_0221{left:1151px;top:1007px;} /* 역삼 */
+.t_way2_0222{left:1107px;top:1014px;} /* 강남 */
+.t_way2_0223{left:1056px;top:1003px;} /* 교대 */
+.t_way2_0224{left:1023px;top:1007px;} /* 서초 */
+.t_way2_0225{left:991px;top:1007px;} /* 방배 */
+.t_way2_0226{left:954px;top:1005px;} /* 사당 */
+.t_way2_0227{left:907px;top:1007px;} /* 낙성대 */
+.t_way2_0228{left:858px;top:1007px;} /* 서울대입구 */
+.t_way2_0229{left:807px;top:1007px;} /* 봉천 */
+.t_way2_0230{left:756px;top:1007px;} /* 신림 */
+.t_way2_0231{left:707px;top:1003px;} /* 신대방 */
+.t_way2_0232{left:669px;top:979px;} /* 구로디지털단지 */
+.t_way2_0233{left:648px;top:942px;} /* 대림 */
+.t_way2_0234{left:639px;top:861px;} /* 신도림 */
+.t_way2_0235{left:639px;top:833px;} /* 문래 */
+.t_way2_0236{left:639px;top:802px;} /* 영등포구청 */
+.t_way2_0237{left:639px;top:753px;} /* 당산 */
+.t_way2_0238{left:639px;top:687px;} /* 합정 */
+.t_way2_0239{left:649px;top:625px;} /* 홍대입구 */
+.t_way2_0240{left:660px;top:579px;} /* 신촌(지하) */
+.t_way2_0241{left:693px;top:549px;} /* 이대 */
+.t_way2_0242{left:740px;top:541px;} /* 아현 */
+.t_way2_0243{left:790px;top:535px;} /* 충정로 */
+.t_way2_0244{left:1282px;top:574px;} /* 용답 */
+.t_way2_0245{left:1277px;top:509px;} /* 신답 */
+.t_way2_0246{left:1135px;top:477px;} /* 신설동 */
+.t_way2_0247{left:588px;top:861px;} /* 도림천 */
+.t_way2_0248{left:530px;top:861px;} /* 양천구청 */
+.t_way2_0249{left:474px;top:858px;} /* 신정네거리 */
+.t_way2_0250{left:1186px;top:481px;} /* 용두 */
+.t_way2_0260{left:439px;top:814px;} /* 까치산 */
+
+.t_way3_0309{left:516px;top:306px;} /* 지축 */
+.t_way3_0310{left:544px;top:306px;} /* 구파발 */
+.t_way3_0311{left:572px;top:302px;} /* 연신내 */
+.t_way3_0312{left:639px;top:302px;} /* 불광 */
+.t_way3_0313{left:698px;top:306px;} /* 녹번 */
+.t_way3_0314{left:758px;top:306px;} /* 홍제 */
+.t_way3_0315{left:818px;top:306px;} /* 무악재 */
+.t_way3_0316{left:877px;top:306px;} /* 독립문 */
+.t_way3_0317{left:923px;top:357px;} /* 경복궁 */
+.t_way3_0318{left:923px;top:413px;} /* 안국 */
+.t_way3_0319{left:924px;top:472px;} /* 종로3가 */
+.t_way3_0320{left:923px;top:544px;} /* 을지로3가 */
+.t_way3_0321{left:954px;top:591px;} /* 충무로 */
+.t_way3_0322{left:1021px;top:591px;} /* 동대입구 */
+.t_way3_0323{left:1061px;top:638px;} /* 약수 */
+.t_way3_0324{left:1056px;top:695px;} /* 금호 */
+.t_way3_0325{left:1056px;top:744px;} /* 옥수 */
+.t_way3_0326{left:1056px;top:814px;} /* 압구정 */
+.t_way3_0327{left:1056px;top:840px;} /* 신사 */
+.t_way3_0328{left:1056px;top:868px;} /* 잠원 */
+.t_way3_0329{left:1057px;top:901px;} /* 고속터미널 */
+.t_way3_0330{left:1056px;top:1003px;} /* 교대 */
+.t_way3_0331{left:1061px;top:1059px;} /* 남부터미널 */
+.t_way3_0332{left:1107px;top:1086px;} /* 양재 */
+.t_way3_0333{left:1159px;top:1093px;} /* 매봉 */
+.t_way3_0334{left:1214px;top:1091px;} /* 도곡 */
+.t_way3_0335{left:1263px;top:1091px;} /* 대치 */
+.t_way3_0336{left:1291px;top:1052px;} /* 학여울 */
+.t_way3_0337{left:1319px;top:1010px;} /* 대청 */
+.t_way3_0338{left:1371px;top:1009px;} /* 일원 */
+.t_way3_0339{left:1424px;top:1012px;} /* 수서 */
+.t_way3_0340{left:1483px;top:1005px;} /* 가락시장 */
+.t_way3_0341{left:1555px;top:1009px;} /* 경찰병원 */
+.t_way3_0342{left:1626px;top:1003px;} /* 오금 */
+.t_way3_1948{left:458px;top:306px;} /* 원흥 */
+.t_way3_1950{left:486px;top:306px;} /* 삼송 */
+.t_way3_1951{left:428px;top:306px;} /* 원당 */
+.t_way3_1952{left:402px;top:306px;} /* 화정 */
+.t_way3_1953{left:371px;top:300px;} /* 대곡 */
+.t_way3_1954{left:318px;top:306px;} /* 백석 */
+.t_way3_1955{left:269px;top:306px;} /* 마두 */
+.t_way3_1956{left:218px;top:306px;} /* 정발산 */
+.t_way3_1957{left:167px;top:299px;} /* 주엽 */
+.t_way3_1958{left:143px;top:255px;} /* 대화 */
+
+.t_way4_0409{left:1652px;top:306px;} /* 당고개 */
+.t_way4_0410{left:1585px;top:306px;} /* 상계 */
+.t_way4_0411{left:1508px;top:302px;} /* 노원 */
+.t_way4_0412{left:1424px;top:302px;} /* 창동 */
+.t_way4_0413{left:1359px;top:306px;} /* 쌍문 */
+.t_way4_0414{left:1296px;top:306px;} /* 수유 */
+.t_way4_0415{left:1229px;top:306px;} /* 미아 */
+.t_way4_0416{left:1166px;top:306px;} /* 미아사거리 */
+.t_way4_0417{left:1103px;top:306px;} /* 길음 */
+.t_way4_0418{left:1038px;top:306px;} /* 성신여대입구 */
+.t_way4_0419{left:989px;top:357px;} /* 한성대입구 */
+.t_way4_0420{left:989px;top:413px;} /* 혜화 */
+.t_way4_0421{left:989px;top:470px;} /* 동대문 */
+.t_way4_0422{left:989px;top:532px;} /* 동대문역사문화공원 */
+.t_way4_0423{left:954px;top:591px;} /* 충무로 */
+.t_way4_0424{left:910px;top:590px;} /* 명동 */
+.t_way4_0425{left:875px;top:605px;} /* 회현 */
+.t_way4_0426{left:854px;top:640px;} /* 서울역 */
+.t_way4_0427{left:877px;top:677px;} /* 숙대입구(갈월) */
+.t_way4_0428{left:920px;top:690px;} /* 삼각지 */
+.t_way4_0429{left:956px;top:739px;} /* 신용산 */
+.t_way4_0430{left:956px;top:791px;} /* 이촌 */
+.t_way4_0431{left:956px;top:870px;} /* 동작 */
+.t_way4_0432{left:957px;top:938px;} /* 총신대입구(이수) */
+.t_way4_0433{left:954px;top:1005px;} /* 사당 */
+.t_way4_0434{left:956px;top:1042px;} /* 남태령 */
+.t_way4_1450{left:956px;top:1073px;} /* 선바위 */
+.t_way4_1451{left:954px;top:1105px;} /* 경마공원 */
+.t_way4_1452{left:938px;top:1130px;} /* 대공원 */
+.t_way4_1453{left:907px;top:1144px;} /* 과천 */
+.t_way4_1454{left:874px;top:1144px;} /* 정부과천청사 */
+.t_way4_1455{left:840px;top:1144px;} /* 인덕원 */
+.t_way4_1456{left:807px;top:1144px;} /* 평촌 */
+.t_way4_1457{left:774px;top:1144px;} /* 범계 */
+.t_way4_1458{left:739px;top:1149px;} /* 금정 */
+.t_way4_1751{left:704px;top:1144px;} /* 산본 */
+.t_way4_1752{left:649px;top:1163px;} /* 대야미 */
+.t_way4_1753{left:637px;top:1193px;} /* 반월 */
+.t_way4_1754{left:637px;top:1228px;} /* 상록수 */
+.t_way4_1755{left:637px;top:1261px;} /* 한대앞 */
+.t_way4_1756{left:637px;top:1291px;} /* 중앙 */
+.t_way4_1757{left:637px;top:1324px;} /* 고잔 */
+.t_way4_1758{left:630px;top:1354px;} /* 초지 */
+.t_way4_1759{left:605px;top:1373px;} /* 안산 */
+.t_way4_1760{left:572px;top:1373px;} /* 신길온천 */
+.t_way4_1761{left:549px;top:1354px;} /* 정왕 */
+.t_way4_1762{left:542px;top:1322px;} /* 오이도 */
+.t_way4_1763{left:674px;top:1145px;} /* 수리산 */
+
+.t_way5_2511{left:238px;top:423px;}/* 방화 */
+.t_way5_2512{left:293px;top:423px;}/* 개화산 */
+.t_way5_2513{left:338px;top:481px;}/* 김포공항 */
+.t_way5_2514{left:338px;top:552px;}/* 송정 */
+.t_way5_2515{left:338px;top:617px;}/* 마곡 */
+.t_way5_2516{left:338px;top:682px;}/* 발산 */
+.t_way5_2517{left:338px;top:747px;}/* 우장산 */
+.t_way5_2518{left:368px;top:804px;}/* 화곡 */
+.t_way5_2519{left:439px;top:814px;}/* 까치산 */
+.t_way5_2520{left:478px;top:808px;}/* 신정 */
+.t_way5_2521{left:518px;top:808px;}/* 목동 */
+.t_way5_2522{left:559px;top:808px;}/* 오목교 */
+.t_way5_2523{left:599px;top:808px;}/* 양평 */
+.t_way5_2524{left:639px;top:802px;}/* 영등포구청 */
+.t_way5_2525{left:696px;top:836px;}/* 영등포시장 */
+.t_way5_2526{left:746px;top:870px;}/* 신길 */
+.t_way5_2527{left:790px;top:812px;}/* 여의도 */
+.t_way5_2528{left:790px;top:784px;}/* 여의나루 */
+.t_way5_2529{left:790px;top:721px;}/* 마포 */
+.t_way5_2530{left:790px;top:683px;}/* 공덕 */
+.t_way5_2531{left:790px;top:603px;}/* 애오개 */
+.t_way5_2532{left:790px;top:535px;}/* 충정로 */
+.t_way5_2533{left:790px;top:451px;}/* 서대문 */
+.t_way5_2534{left:853px;top:390px;}/* 광화문 */
+.t_way5_2535{left:924px;top:472px;}/* 종로3가 */
+.t_way5_2536{left:961px;top:537px;}/* 을지로4가 */
+.t_way5_2537{left:989px;top:532px;}/* 동대문역사문화공원 */
+.t_way5_2538{left:1065px;top:577px;}/* 청구 */
+.t_way5_2539{left:1110px;top:574px;}/* 신금호 */
+.t_way5_2540{left:1153px;top:563px;}/* 행당 */
+.t_way5_2541{left:1200px;top:546px;}/* 왕십리 */
+.t_way5_2542{left:1261px;top:547px;}/* 마장 */
+.t_way5_2543{left:1310px;top:547px;}/* 답십리 */
+.t_way5_2544{left:1353px;top:555px;}/* 장한평 */
+.t_way5_2545{left:1372px;top:597px;}/* 군자 */
+.t_way5_2546{left:1375px;top:679px;}/* 아차산 */
+.t_way5_2547{left:1375px;top:758px;}/* 광나루 */
+.t_way5_2548{left:1379px;top:841px;}/* 천호 */
+.t_way5_2549{left:1515px;top:891px;}/* 강동 */
+.t_way5_2550{left:1559px;top:877px;}/* 길동 */
+.t_way5_2551{left:1574px;top:854px;}/* 굽은다리 */
+.t_way5_2552{left:1576px;top:822px;}/* 명일 */
+.t_way5_2553{left:1576px;top:790px;}/* 고덕 */
+.t_way5_2554{left:1575px;top:760px;}/* 상일동 */
+.t_way5_2555{left:1572px;top:891px;}/* 둔촌동 */
+.t_way5_2556{left:1616px;top:910px;}/* 올림픽공원 */
+.t_way5_2557{left:1626px;top:956px;}/* 방이 */
+.t_way5_2558{left:1626px;top:1006px;}/* 오금 */
+.t_way5_2559{left:1660px;top:1041px;}/* 개롱 */
+.t_way5_2560{left:1703px;top:1041px;}/* 거여 */
+.t_way5_2561{left:1749px;top:1041px;}/* 마천 */
+
+.t_way6_2611{left:572px;top:372px;}/* 응암(내선,외선) */
+.t_way6_2612{left:606px;top:338px;}/* 역촌 */
+.t_way6_2613{left:639px;top:302px;}/* 불광 */
+.t_way6_2614{left:605px;top:246px;}/* 독바위 */
+.t_way6_2615{left:572px;top:302px;}/* 연신내 */
+.t_way6_2616{left:573px;top:341px;}/* 구산 */
+.t_way6_2617{left:572px;top:406px;}/* 새절 */
+.t_way6_2618{left:572px;top:439px;}/* 증산 */
+.t_way6_2619{left:572px;top:481px;}/* 디지털미디어시티 */
+.t_way6_2620{left:572px;top:547px;}/* 월드컵경기장 */
+.t_way6_2621{left:572px;top:608px;}/* 마포구청 */
+.t_way6_2622{left:580px;top:667px;}/* 망원 */
+.t_way6_2623{left:639px;top:687px;}/* 합정 */
+.t_way6_2624{left:679px;top:690px;}/* 상수 */
+.t_way6_2625{left:716px;top:690px;}/* 광흥창 */
+.t_way6_2626{left:753px;top:690px;}/* 대흥 */
+.t_way6_2627{left:790px;top:683px;}/* 공덕 */
+.t_way6_2628{left:809px;top:694px;}/* 효창공원앞 */
+.t_way6_2629{left:920px;top:690px;}/* 삼각지 */
+.t_way6_2630{left:958px;top:690px;}/* 녹사평 */
+.t_way6_2631{left:988px;top:690px;}/* 이태원 */
+.t_way6_2632{left:1020px;top:690px;}/* 한강진 */
+.t_way6_2633{left:1048px;top:677px;}/* 버티고개 */
+.t_way6_2634{left:1061px;top:638px;}/* 약수 */
+.t_way6_2635{left:1065px;top:577px;}/* 청구 */
+.t_way6_2636{left:1065px;top:537px;}/* 신당 */
+.t_way6_2637{left:1065px;top:469px;}/* 동묘앞 */
+.t_way6_2638{left:1065px;top:419px;}/* 창신 */
+.t_way6_2639{left:1113px;top:389px;}/* 보문 */
+.t_way6_2640{left:1165px;top:389px;}/* 안암 */
+.t_way6_2641{left:1217px;top:389px;}/* 고려대 */
+.t_way6_2642{left:1270px;top:389px;}/* 월곡 */
+.t_way6_2643{left:1322px;top:389px;}/* 상월곡 */
+.t_way6_2644{left:1374px;top:389px;}/* 돌곶이 */
+.t_way6_2645{left:1426px;top:393px;}/* 석계 */
+.t_way6_2646{left:1509px;top:394px;}/* 태릉입구 */
+.t_way6_2647{left:1587px;top:389px;}/* 화랑대 */
+.t_way6_2648{left:1656px;top:389px;}/* 봉화산 */
+
+.t_way7_2711{left:1326px;top:225px;}/* 장암 */
+.t_way7_2712{left:1375px;top:173px;}/* 도봉산 */
+.t_way7_2713{left:1465px;top:173px;}/* 수락산 */
+.t_way7_2714{left:1509px;top:233px;}/* 마들 */
+.t_way7_2715{left:1508px;top:302px;}/* 노원 */
+.t_way7_2716{left:1509px;top:329px;}/* 중계 */
+.t_way7_2717{left:1509px;top:347px;}/* 하계 */
+.t_way7_2718{left:1509px;top:367px;}/* 공릉 */
+.t_way7_2719{left:1509px;top:394px;}/* 태릉입구 */
+.t_way7_2720{left:1509px;top:427px;}/* 먹골 */
+.t_way7_2721{left:1504px;top:454px;}/* 중화 */
+.t_way7_2722{left:1472px;top:486px;}/* 상봉 */
+.t_way7_2723{left:1451px;top:514px;}/* 면목 */
+.t_way7_2724{left:1433px;top:532px;}/* 사가정 */
+.t_way7_2725{left:1415px;top:549px;}/* 용마산 */
+.t_way7_2726{left:1396px;top:568px;}/* 중곡 */
+.t_way7_2727{left:1372px;top:597px;}/* 군자 */
+.t_way7_2728{left:1325px;top:640px;}/* 어린이대공원 */
+.t_way7_2729{left:1278px;top:683px;}/* 건대입구 */
+.t_way7_2730{left:1251px;top:714px;}/* 뚝섬유원지 */
+.t_way7_2731{left:1217px;top:748px;}/* 청담 */
+.t_way7_2732{left:1195px;top:775px;}/* 강남구청 */
+.t_way7_2733{left:1158px;top:807px;}/* 학동 */
+.t_way7_2734{left:1127px;top:837px;}/* 논현 */
+.t_way7_2735{left:1097px;top:867px;}/* 반포 */
+.t_way7_2736{left:1057px;top:901px;}/* 고속터미널 */
+.t_way7_2737{left:1015px;top:938px;}/* 내방 */
+.t_way7_2738{left:957px;top:938px;}/* 총신대입구(이수) */
+.t_way7_2739{left:918px;top:941px;}/* 남성 */
+.t_way7_2740{left:880px;top:941px;}/* 숭실대입구 */
+.t_way7_2741{left:842px;top:941px;}/* 상도 */
+.t_way7_2742{left:804px;top:941px;}/* 장승배기 */
+.t_way7_2743{left:767px;top:941px;}/* 신대방삼거리 */
+.t_way7_2744{left:729px;top:941px;}/* 보라매 */
+.t_way7_2745{left:691px;top:941px;}/* 신풍 */
+.t_way7_2746{left:648px;top:942px;}/* 대림 */
+.t_way7_2747{left:616px;top:941px;}/* 남구로 */
+.t_way7_2748{left:588px;top:945px;}/* 가산디지털단지 */
+.t_way7_2749{left:551px;top:941px;}/* 철산 */
+.t_way7_2750{left:515px;top:941px;}/* 광명사거리 */
+.t_way7_2751{left:475px;top:941px;}/* 천왕 */
+.t_way7_2752{left:438px;top:939px;}/* 온수 */
+.t_way7_2753{left:404px;top:941px;}/* 까치울 */
+.t_way7_2754{left:374px;top:941px;}/* 부천종합운동장 */
+.t_way7_2755{left:349px;top:923px;}/* 춘의 */
+.t_way7_2756{left:343px;top:892px;}/* 신중동 */
+.t_way7_2757{left:325px;top:868px;}/* 부천시청 */
+.t_way7_2758{left:289px;top:858px;}/* 상동 */
+.t_way7_2759{left:258px;top:873px;}/* 삼산체육관 */
+.t_way7_2760{left:245px;top:908px;}/* 굴포천 */
+.t_way7_2761{left:242px;top:945px;}/* 부평구청 */
+
+.t_way8_2811{left:1451px;top:840px;}/* 암사 */
+.t_way8_2812{left:1379px;top:841px;}/* 천호 */
+.t_way8_2813{left:1335px;top:841px;}/* 강동구청 */
+.t_way8_2814{left:1298px;top:853px;}/* 몽촌토성 */
+.t_way8_2815{left:1277px;top:889px;}/* 잠실 */
+.t_way8_2816{left:1339px;top:941px;}/* 석촌 */
+.t_way8_2817{left:1419px;top:941px;}/* 송파 */
+.t_way8_2818{left:1483px;top:1005px;}/* 가락시장 */
+.t_way8_2819{left:1483px;top:1032px;}/* 문정 */
+.t_way8_2820{left:1483px;top:1056px;}/* 장지 */
+.t_way8_2821{left:1479px;top:1080px;}/* 복정 */
+.t_way8_2822{left:1530px;top:1115px;}/* 산성 */
+.t_way8_2823{left:1584px;top:1135px;}/* 남한산성입구 */
+.t_way8_2824{left:1587px;top:1189px;}/* 단대오거리 */
+.t_way8_2825{left:1543px;top:1216px;}/* 신흥 */
+.t_way8_2826{left:1485px;top:1216px;}/* 수진 */
+.t_way8_2827{left:1427px;top:1212px;}/* 모란 */
