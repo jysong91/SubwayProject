@@ -33,7 +33,7 @@ html, body { overflow : hidden; }
 .menu .line_on {background:url(/images/train/user/select_box.png) 50% no-repeat;width:180px;height:50px;cursor:pointer;}
 .menu .cb_on {background:url(/images/train/user/menu_u_p.png) 50% no-repeat;}
 
-/* 노선도 */
+/* 노선도 1928/1565 */
 .subwayAll, .subway1, .subway2, .subway3, .subway4, .subway5, .subway6, .subway7, .subway8
 {width:1928px;height:1565px;text-align:center;position:relative;background-size:1928px;background-repeat:no-repeat;}
 .subwayAll{background-image:url(../img/forHome/map_korea.jpg);}
@@ -50,14 +50,14 @@ div[class^=subway].zoom-1{width:1687px;height:1370px;background-size:1687px;}
 div[class^=subway].zoom1{width:2169px;height:1761px;background-size:2169px;}
 div[class^=subway].zoom2{width:2410px;height:1957px;background-size:2410px;}
 
-/* 역 좌표 */
-.t_way1,.t_way2,.t_way3,.t_way4,.t_way5,.t_way6,.t_way7,.t_way8 {position:absolute;width:15px;height:15px;cursor:pointer;}
+/* 역 좌표  coords="1678,550,1732,579"*/
+.t_way1,.t_way2,.t_way3,.t_way4,.t_way5,.t_way6,.t_way7,.t_way8 {position:absolute;cursor:pointer;}
 .t_way1_0150{left:854px;top:640px;} /* 서울역 */
 .t_way1_0151{left:856px;top:535px;} /* 시청 */
 .t_way1_0152{left:870px;top:488px;} /* 종각 */
 .t_way1_0153{left:924px;top:472px;} /* 종로3가 */
 .t_way1_0154{left:959px;top:474px;} /* 종로5가 */
-.t_way1_0155{left:989px;top:470px;} /* 동대문 */
+.t_way1_0155{top: 551px; left: 1678px; width: 55px; height: 28px;} /* 동대문 */
 .t_way1_0156{left:1135px;top:477px;} /* 신설동 */
 .t_way1_0157{left:1205px;top:474px;} /* 제기동 */
 .t_way1_0158{left:1287px;top:481px;} /* 청량리 */

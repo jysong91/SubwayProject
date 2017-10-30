@@ -91,7 +91,7 @@ $(document).ready(function(e) {
     });
     
 	// 화면 이동 (2호선 노선도)
-	moveScreen(0, 0);
+	moveScreen(300, -270);
 	
 	
 });
@@ -140,14 +140,14 @@ function callNoticePop() {
 // 	}
 // }
 
-//자동 새로고침 시간 갱신용
-function autoReloadTimeReset() {
-	autoReloadSec = autoReloadSec -1;
-	if( autoReloadSec < 0 ) {
-		autoReloadSec = 0;
-	}
-	autoReloadSecTimeOut = setTimeout(autoReloadTimeReset,1000); // 1초
-}
+// //자동 새로고침 시간 갱신용
+// function autoReloadTimeReset() {
+// 	autoReloadSec = autoReloadSec -1;
+// 	if( autoReloadSec < 0 ) {
+// 		autoReloadSec = 0;
+// 	}
+// 	autoReloadSecTimeOut = setTimeout(autoReloadTimeReset,1000); // 1초
+// }
 
 //인터넷익스플로러 버전 체크
 function getInternetExplorerVersion() {    
@@ -167,11 +167,17 @@ function zoomMap(){
 	// tooltip Off
 	$(".tip").tooltip( "close" );
 	
+	//크롬,사파리,오페라
 	$('#trainMap').css('-webkit-transform','scale(' + currZoom + ','+ currZoom + ')');
-    $('#trainMap').css('-moz-transform','scale(' + currZoom + ','+ currZoom + ')');
+    //모질라(파폭)
+	$('#trainMap').css('-moz-transform','scale(' + currZoom + ','+ currZoom + ')');
+    //익스9
     $('#trainMap').css('-ms-transform','scale(' + currZoom + ','+ currZoom + ')');
+    //오페라
     $('#trainMap').css('-o-transform','scale(' + currZoom + ','+ currZoom + ')');
+    
     $('#trainMap').css('transform-origin','50% 50%');
+    
     containOptionForDraggable();
     
     if(currZoom >= maxZoom){
@@ -239,6 +245,103 @@ function moveScreen(left, top){
   <div id="traininfo-contents">
       <!-- 노선도 -->						
       <div class="subwayAll" id="trainMap" style="position: relative; -ms-overflow-style: none; left: 0px; top: 0px; display:block;">
+      
+<script>
+$(document).ready(function(){
+	var searchLine = 0;
+	
+	var imgDefaultName = "";
+	var imgDefaultName2 = "";
+	var imgName = "";
+	var imgName2 = "";
+	var left = 0;
+	var top = 0;
+	var isError = false;
+	$("div[class^=T]").each(function(idx, obj){
+		if($(obj).attr("data-statnTcd") != ""){
+			imgDefaultName = $(obj).css("background-image");
+			imgDefaultName2 = imgDefaultName.substring(imgDefaultName.indexOf("/images/"),imgDefaultName.length-2);
+			imgName = $(obj).css("background-image").replace("default",$(obj).attr("data-statnTcd"));
+			imgName2 = imgName.substring(imgName.indexOf("/images/")).replace(")","").replace("\"","").replace("\'","");
+			
+			// 열차 이미지 추가
+			if(imgDefaultName != undefined && imgDefaultName != "none"){
+				$(obj).append(
+					$("<img/>")
+						.on('load', function() {
+							if($(this).attr("src") != "/images/common/transparent.png" ){
+								$(obj).css("background-image","url(/images/common/transparent.png)");
+							}
+						})
+					    .on('error', function() { 
+					    	$(this).attr("src","/images/common/transparent.png");
+					    })
+					    .attr("src",imgName2)
+					    .css({"width":"38px","height":"29px"})
+				);
+			
+				// 익스플로러 8이하 일때
+				if(rv != undefined && rv >= 0 && rv <= 8){
+					$(obj).css({
+						"width":"38px",
+						"height":"29px",
+						"margin":"5.5px 1px",
+						"background-image":"url(/images/common/transparent.png))",
+						"filter":"progid:DXImageTransform.Microsoft.AlphaImageLoader( src='" + imgDefaultName2 + "', sizingMethod='scale'",
+						"-ms-filter":"\"progid:DXImageTransform.Microsoft.AlphaImageLoader( src='" + imgDefaultName2 + "', sizingMethod=\'scale\')\""
+					});
+					
+				} else {
+					$(obj).find("img").css("margin","5.5px 1px");
+				}
+			}
+		}
+	});
+	
+	// 서울시 API의 메트로 구간 데이터 display off
+	$("div[class$='korail'] div").filter(function(index){
+		return $(this).css("background-image") === "none";
+	}).css("display", "none");
+	
+	$("div[class^=t_way]").on("click",function(e){
+		var changeLine = $(this).parent().attr('class').substr(0,1);
+		if(searchLine != changeLine) {
+			lineChange(changeLine);
+		} else {
+			lineChange('0');
+		}
+	});
+	
+	$(".tip").tooltip({
+		position: {
+			my: "center bottom",
+	        at: "center top-10",
+	        collision: "flip",
+	        using: function( position, feedback ) {
+	            $( this ).addClass( feedback.vertical )
+	                .css( position );
+	        }
+		}
+		/**
+		,content: function(callback) { 
+		     callback($(this).prop('title').replace('열차 ', '열차<br/>')); 
+		}
+		*/
+	});
+	
+	//zoom 효과 유지
+	//if(currZoomStep != undefined && currZoomStep != 0){
+	//	zoomMap(0, currZoomStep);
+	//}
+});
+$('.tip').mouseover(function(){
+	$(this).css('z-index',9999);
+}).mouseout(function(){
+	$(this).css('z-index',9998); 
+});
+</script>
+		<div class="t_way1_0155" id="dongdaemoon">
+		</div>
       </div>
     
     <div id="zoomIn"></div>

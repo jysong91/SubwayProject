@@ -1,0 +1,73 @@
+.moveCursor{
+	cursor:move;
+}
+.defaultCursor{
+	cursor:default;
+}    	
+
+
+// 	    $("#map").draggable({
+// 	    	cursor:"move",
+// 	    	containment:[-2948, -2126,0,0 ],
+// 	    	scroll:"true"
+// 	    });
+//		지도 이동용
+// 	    var clicking = false;
+// 	    var previousX;
+// 	    var previousY;
+// 	        줌변수
+// 	    var zoomCnt=0;
+	    
+//		지도 이동용
+// 	    $("#scroll").mousedown(function(e) {
+// 	        e.preventDefault();
+// 	        previousX = e.clientX;
+// 	        previousY = e.clientY;
+// 	        clicking = true;
+// 	    });
+// 	    $(document).mouseup(function() {
+// 	        clicking = false;
+// 	    });
+// 	    $("#scroll").mousemove(function(e) {
+// 	        if (clicking) {
+// 	            e.preventDefault();
+// 	            var directionX = (previousX - e.clientX) > 0 ? 1 : -1;
+// 	            var directionY = (previousY - e.clientY) > 0 ? 1 : -1;
+// 	            //$("#scroll").scrollLeft($("#scroll").scrollLeft() + 10 * directionX);
+// 	            //$("#scroll").scrollTop($("#scroll").scrollTop() + 10 * directionY);
+// 	            $("#scroll").scrollLeft($("#scroll").scrollLeft() + (previousX - e.clientX));
+// 	            $("#scroll").scrollTop($("#scroll").scrollTop() + (previousY - e.clientY));
+// 	            previousX = e.clientX;
+// 	            previousY = e.clientY;
+// 	            $(this).attr('class','moveCursor');
+// 	        }else{
+// 	        	$(this).attr('class','defaultCursor');
+// 	        }
+// 	    });
+// 	    $("#scroll").mouseleave(function(e) {
+// 	        clicking = false;
+// 	    });
+// 	    기본적인 줌
+// 	    $("#map").on("click", function(){
+// 		    $("#map").animate({zoom: '50%'}, "slow");
+// 		});
+		$('#map').bind('wheel mousewheel', function(e){
+			var delta;
+			
+	        
+	        if (e.originalEvent.wheelDelta !== undefined)
+	            delta = e.originalEvent.wheelDelta;
+	        else
+	            delta = e.originalEvent.deltaY * -1;
+	
+            if(delta > 0&&zoomCnt<=10) {
+                $("#map").css("width", "+=100");
+                $("#map").css("height", "+=100");
+                zoomCnt++;
+            }
+            else if(zoomCnt>-6){
+                $("#map").css("width", "-=100");
+                $("#map").css("height", "-=100");
+                zoomCnt--;
+            }
+        });
